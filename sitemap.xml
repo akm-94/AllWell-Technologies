@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Products & Solutions -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#products</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Ultrasonic Label Slitter -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#ultrasonic</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CNC Laser Machines -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#laser</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SS Filter Housings -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#filters</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Special Purpose Machines -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#special</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ultrasonic Welding Machine -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#welding</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Laser & Galvo Job Work -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#job-work</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#about</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Industries -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#industries</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact / Enquiry -->
+  <url>
+    <loc>https://www.allwelltechnologies.com/#enquiry</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
