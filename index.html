@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ALLWELL Technologies — Designers and manufacturers of special purpose CNC machines, ultrasonic label slitters, laser systems, and stainless steel filter housings. Made in India.">
+<title>ALLWELL Technologies | Precision Machines. Made in India.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── DESIGN TOKENS ─────────────────────────────────────── */
+:root {
+  --green:        #2B7A38;
+  --green-dark:   #1A3D20;
+  --green-deep:   #0F2414;
+  --green-light:  #EBF5EC;
+  --green-mid:    #4A9B57;
+  --black:        #111612;
+  --grey-90:      #1C201D;
+  --grey-70:      #3E4540;
+  --grey-50:      #717870;
+  --grey-30:      #B0B5AF;
+  --grey-10:      #F0F2F0;
+  --white:        #FFFFFF;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow', sans-serif;
+  --nav-h:        90px;
+  --radius:       4px;
+  --radius-lg:    8px;
+  --shadow:       0 2px 16px rgba(0,0,0,0.10);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,0.16);
+}
+
+/* ─── RESET ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-body); color: var(--black); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ─── UTILITY ────────────────────────────────────────────── */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.section-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+.section-title span { color: var(--green); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.btn-primary { background: var(--green); color: var(--white); }
+.btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
+.btn-outline:hover { background: var(--green-light); }
+.btn-white { background: var(--white); color: var(--green-dark); }
+.btn-white:hover { background: var(--grey-10); }
+
+/* ─── NAVBAR ─────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  z-index: 1000;
+  transition: box-shadow .3s;
+}
+.navbar.scrolled { box-shadow: var(--shadow); }
+.navbar .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav-logo img { height: 130px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--grey-70);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: color .2s, background .2s;
+}
+.nav-links a:hover { color: var(--green); background: var(--green-light); }
+.nav-links a.active { color: var(--green); }
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.nav-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grey-70);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--grey-30);
+  transition: all .2s;
+}
+.nav-whatsapp:hover { border-color: var(--green); color: var(--green); }
+.nav-whatsapp svg { width: 16px; height: 16px; fill: currentColor; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--grey-70); transition: all .3s; border-radius: 2px; }
+
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background: var(--green-deep);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 59px,
+    rgba(255,255,255,.02) 59px,
+    rgba(255,255,255,.02) 60px
+  );
+  pointer-events: none;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 0;
+  padding-left: max(24px, calc((100vw - 1160px) / 2 + 24px));
+  position: relative;
+  z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--green-mid);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.5vw, 72px);
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: -.01em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--green-mid);
+  display: block;
+}
+.hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,.65);
+  line-height: 1.65;
+  max-width: 440px;
+  margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,.45);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.hero-image-panel {
+  position: relative;
+  overflow: hidden;
+}
+.hero-image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1;
+  transition: opacity .6s;
+  padding: 32px;
+  background: var(--green-deep);
+}
+.hero-image-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--green-deep) 0%, transparent 40%);
+}
+.hero-product-badge {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  z-index: 2;
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius-lg);
+  padding: 14px 20px;
+}
+.hero-product-badge p { font-size: 11px; color: rgba(255,255,255,.5); margin-bottom: 2px; letter-spacing: .06em; text-transform: uppercase; }
+.hero-product-badge strong { font-size: 14px; color: var(--white); font-weight: 600; }
+
+/* ─── MARQUEE STRIP ──────────────────────────────────────── */
+.marquee-strip {
+  background: var(--green);
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-inner {
+  display: inline-flex;
+  animation: marquee 28s linear infinite;
+}
+.marquee-item {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  padding: 0 32px;
+}
+.marquee-dot {
+  color: rgba(255,255,255,.35);
+  padding: 0 4px;
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ─── ABOUT STRIP ────────────────────────────────────────── */
+.about-strip {
+  background: var(--grey-10);
+  padding: 64px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.about-strip .container {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr 2px 1fr 2px 1fr;
+  gap: 0;
+  align-items: center;
+}
+.about-divider { background: var(--grey-30); height: 60px; width: 1px; margin: 0 auto; }
+.about-item { text-align: center; padding: 0 24px; }
+.about-item-num {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.about-item-label {
+  font-size: 13px;
+  color: var(--grey-50);
+  line-height: 1.4;
+}
+
+/* ─── PRODUCTS ───────────────────────────────────────────── */
+.products { padding: 96px 0; }
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  gap: 24px;
+}
+.products-intro { max-width: 520px; }
+.products-intro p { font-size: 16px; color: var(--grey-50); line-height: 1.7; margin-top: 12px; }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--grey-10);
+  border: 2px solid var(--grey-10);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.product-card {
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+.product-card:hover { z-index: 2; }
+.product-card-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--grey-10);
+  position: relative;
+}
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.product-card-image img.img-contain {
+  object-fit: contain;
+  padding: 16px;
+  background: #ffffff;
+}
+.product-card:hover .product-card-image img { transform: scale(1.04); }
+.product-card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grey-10);
+}
+.product-card-image-placeholder svg { width: 48px; height: 48px; stroke: var(--grey-30); fill: none; stroke-width: 1; }
+.product-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--green);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.product-card-body { padding: 20px 22px 24px; }
+.product-card-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.product-card-desc {
+  font-size: 13px;
+  color: var(--grey-50);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.product-card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.product-feature-pill {
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--green-light);
+  color: var(--green-dark);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.product-card-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  margin-top: 16px;
+  transition: gap .2s;
+}
+.product-card:hover .product-card-link { gap: 10px; }
+.product-card-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* Featured card spans 2 columns */
+.product-card.featured { grid-column: span 2; }
+.product-card.featured .product-card-image { aspect-ratio: 16/9; }
+.product-card.featured .product-card-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.product-card.featured .product-card-title { font-size: 24px; grid-column: 1/-1; }
+.product-card.featured .product-card-desc { grid-column: 1/-1; }
+
+/* ─── CAPABILITIES ───────────────────────────────────────── */
+.capabilities {
+  background: var(--green-deep);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.capabilities::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(43,122,56,.15);
+  pointer-events: none;
+}
+.capabilities .container { display: grid; grid-template-columns: 1fr; gap: 48px; max-width: 760px; margin: 0 auto; }
+.capabilities-left .section-label { color: var(--green-mid); }
+.capabilities-left .section-title { color: var(--white); }
+.capabilities-left p { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 32px; }
+.cap-list { display: flex; flex-direction: column; gap: 14px; }
+.cap-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg);
+  transition: background .2s;
+}
+.cap-item:hover { background: rgba(255,255,255,.08); }
+.cap-icon {
+  width: 36px; height: 36px;
+  background: rgba(43,122,56,.3);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cap-icon svg { width: 18px; height: 18px; stroke: var(--green-mid); fill: none; stroke-width: 1.75; stroke-linecap: round; }
+.cap-text-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+.cap-text-desc { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+
+.capabilities-right { position: relative; }
+.cap-image-stack { position: relative; }
+.cap-img-main {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  opacity: .8;
+}
+.cap-img-secondary {
+  position: absolute;
+  bottom: -24px;
+  left: -32px;
+  width: 55%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 4px solid var(--green-deep);
+  opacity: .85;
+}
+.cap-badge {
+  position: absolute;
+  top: 24px;
+  right: -20px;
+  background: var(--green);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+.cap-badge-num { font-family: var(--font-display); font-size: 28px; font-weight: 700; line-height: 1; }
+.cap-badge-text { font-size: 11px; opacity: .8; margin-top: 4px; line-height: 1.3; }
+
+/* ─── WHY ALLWELL ────────────────────────────────────────── */
+.why { padding: 96px 0; background: var(--white); }
+.why-header { text-align: center; max-width: 600px; margin: 0 auto 56px; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--grey-10); border-radius: var(--radius-lg); overflow: hidden; }
+.why-card {
+  background: var(--white);
+  padding: 32px;
+  transition: background .2s;
+}
+.why-card:hover { background: var(--green-light); }
+.why-card-icon {
+  width: 44px; height: 44px;
+  background: var(--green-light);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: background .2s;
+}
+.why-card:hover .why-card-icon { background: rgba(43,122,56,.2); }
+.why-card-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.75; stroke-linecap: round; }
+.why-card-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+.why-card-desc { font-size: 13px; color: var(--grey-50); line-height: 1.65; }
+
+/* ─── INDUSTRIES ─────────────────────────────────────────── */
+.industries { padding: 80px 0; background: var(--grey-10); }
+.industries .container { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: center; }
+.ind-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.ind-pill {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 1.5px solid var(--grey-30);
+  color: var(--grey-70);
+  background: var(--white);
+  transition: all .2s;
+  cursor: default;
+}
+.ind-pill.active { background: var(--green); border-color: var(--green); color: var(--white); }
+.ind-pill:hover { border-color: var(--green); color: var(--green); }
+.ind-pill.active:hover { color: var(--white); }
+
+/* ─── ENQUIRY ────────────────────────────────────────────── */
+.enquiry { padding: 96px 0; background: var(--white); }
+.enquiry .container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.enquiry-left { position: sticky; top: calc(var(--nav-h) + 32px); }
+.enquiry-left p { font-size: 15px; color: var(--grey-50); line-height: 1.75; margin: 16px 0 32px; }
+.contact-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+.contact-item { display: flex; align-items: center; gap: 12px; }
+.contact-icon { width: 38px; height: 38px; background: var(--green-light); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-icon svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 1.75; stroke-linecap: round; }
+.contact-label { font-size: 11px; color: var(--grey-30); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+.contact-value { font-size: 14px; font-weight: 500; color: var(--black); }
+.contact-value a { color: var(--green); }
+
+.enquiry-form {
+  background: var(--grey-10);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { margin-bottom: 16px; }
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--grey-70);
+  margin-bottom: 6px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: var(--white);
+  border: 1.5px solid rgba(0,0,0,.1);
+  border-radius: var(--radius);
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--black);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  appearance: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(43,122,56,.12);
+}
+.form-textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
+.form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23717870' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--green);
+  color: var(--white) !important;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s, color .2s, transform .15s;
+  margin-top: 4px;
+}
+.form-submit:hover { background: var(--green-dark); transform: translateY(-1px); }
+.form-note { font-size: 11px; color: var(--grey-30); text-align: center; margin-top: 12px; line-height: 1.5; }
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer {
+  background: var(--green-deep);
+  color: rgba(255,255,255,.6);
+  padding: 64px 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-brand img { height: 120px; width: auto; margin-bottom: 20px; background: #ffffff; padding: 12px 28px; border-radius: 6px; display: block; }
+.footer-tagline { font-size: 13px; line-height: 1.65; max-width: 260px; margin-bottom: 24px; }
+.footer-social { display: flex; gap: 10px; }
+.social-btn {
+  width: 34px; height: 34px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.social-btn:hover { border-color: var(--green-mid); background: rgba(255,255,255,.05); }
+.social-btn svg { width: 15px; height: 15px; fill: rgba(255,255,255,.6); }
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  padding: 4px 0;
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-bottom a { color: rgba(255,255,255,.4); transition: color .2s; }
+.footer-bottom a:hover { color: var(--white); }
+
+/* ─── WHATSAPP FLOAT ─────────────────────────────────────── */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 52px; height: 52px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.4);
+  z-index: 999;
+  transition: transform .2s;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 28px; height: 28px; fill: white; }
+
+/* ─── SECTION PRODUCT DETAIL (anchor targets) ───────────── */
+.product-detail { padding: 80px 0; border-top: 1px solid var(--grey-10); }
+.product-detail:nth-child(even) { background: var(--grey-10); }
+.pd-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.pd-inner.reverse { direction: rtl; }
+.pd-inner.reverse > * { direction: ltr; }
+.pd-images { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pd-img-main { grid-column: span 2; aspect-ratio: 16/10; object-fit: cover; border-radius: var(--radius-lg); }
+.pd-img-thumb { aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+.pd-content .section-label { margin-bottom: 8px; }
+.pd-content h2 { font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1.1; color: var(--black); margin-bottom: 16px; }
+.pd-content p { font-size: 15px; color: var(--grey-50); line-height: 1.75; margin-bottom: 24px; }
+.pd-spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
+.pd-spec {
+  background: var(--grey-10);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.pd-spec-key { font-size: 11px; color: var(--grey-30); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+.pd-spec-val { font-size: 14px; font-weight: 600; color: var(--black); }
+.pd-bullets { margin-bottom: 28px; }
+.pd-bullet {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--grey-70);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--grey-10);
+}
+.pd-bullet::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-top: 7px; flex-shrink: 0; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-content { padding: 60px 24px 40px; }
+  .hero-image-panel { height: 320px; }
+  .hero-image-panel::after { background: linear-gradient(to top, var(--green-deep) 0%, transparent 60%); }
+  .about-strip .container { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .about-divider { display: none; }
+  .product-grid { grid-template-columns: 1fr 1fr; }
+  .product-card.featured { grid-column: span 2; }
+  .product-card.featured .product-card-body { grid-template-columns: 1fr; }
+  .capabilities .container { grid-template-columns: 1fr; gap: 48px; }
+  .cap-badge { right: 0; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .industries .container { grid-template-columns: 1fr; gap: 32px; }
+  .enquiry .container { grid-template-columns: 1fr; gap: 48px; }
+  .enquiry-left { position: static; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .pd-inner { grid-template-columns: 1fr; gap: 40px; }
+  .pd-inner.reverse { direction: ltr; }
+}
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--grey-10); padding: 12px 16px; box-shadow: var(--shadow); }
+  .hamburger { display: flex; }
+  .product-grid { grid-template-columns: 1fr; }
+  .product-card.featured { grid-column: span 1; }
+  .form-row { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <img src="images/Logo_transparent_background.png" alt="ALLWELL Technologies">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#job-work">Job Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#enquiry">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://wa.me/919310854523" class="nav-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        +91 98712 96020
+      </a>
+      <a href="#enquiry" class="btn btn-primary">Get a Quote</a>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Made in India · Est. 2008</div>
+    <h1>Precision Machines.<br><em>Engineered to Last.</em></h1>
+    <p class="hero-sub">ALLWELL Technologies designs and manufactures special-purpose CNC machines, ultrasonic label slitters, laser systems, and stainless steel filter housings — built in-house in Ghaziabad for industries across India.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Explore Products
+      </a>
+      <a href="#enquiry" class="btn btn-white">Send an Enquiry</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">25+</div>
+        <div class="hero-stat-label">Years of engineering<br>expertise</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">In-house design<br>and manufacturing</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">Product &amp; service<br>categories</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image-panel">
+    <img src="images/Ultrasonic_Label_Slitter_1.png" alt="ALLWELL Ultrasonic Label Slitter machine" id="heroImg" class="img-contain" style="opacity:1;background:#0F2414;">
+    <div class="hero-product-badge">
+      <p>Featured product</p>
+      <strong>Ultrasonic Label Slitter</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══════════════════════════════════════════ -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span class="marquee-item">CNC Laser Machines</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Ultrasonic Label Slitting</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">SS Filter Housings</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Special Purpose Machines</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Laser &amp; Galvo Job Work</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Hydropneumatic Power Press</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Ultrasonic Welding</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Make in India</span><span class="marquee-dot">·</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">CNC Laser Machines</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Ultrasonic Label Slitting</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">SS Filter Housings</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Special Purpose Machines</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Laser &amp; Galvo Job Work</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Hydropneumatic Power Press</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Ultrasonic Welding</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Make in India</span><span class="marquee-dot">·</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT NUMBERS ════════════════════════════════════ -->
+<section class="about-strip" id="about">
+  <div class="container">
+    <div class="about-item">
+      <div class="about-item-num">2008</div>
+      <div class="about-item-label">Year founded</div>
+    </div>
+    <div class="about-divider"></div>
+    <div class="about-item">
+      <div class="about-item-num">25+</div>
+      <div class="about-item-label">Years of combined<br>industry expertise</div>
+    </div>
+    <div class="about-divider"></div>
+    <div class="about-item">
+      <div class="about-item-num">100%</div>
+      <div class="about-item-label">In-house design<br>&amp; manufacture</div>
+    </div>
+    <div class="about-divider"></div>
+    <div class="about-item">
+      <div class="about-item-num">Pan-India</div>
+      <div class="about-item-label">Delivery &amp; support<br>across India</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS ══════════════════════════════════════════ -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="products-header">
+      <div class="products-intro">
+        <div class="section-label">What we build</div>
+        <h2 class="section-title">Products &amp; <span>Solutions</span></h2>
+        <p>Every machine we deliver is designed from the ground up at our Ghaziabad facility — no off-the-shelf imports. Custom configurations available for all product lines.</p>
+      </div>
+      <a href="#enquiry" class="btn btn-outline">Request a Quote →</a>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- FEATURED: Ultrasonic Label Slitter -->
+      <div class="product-card featured" id="ultrasonic">
+        <div class="product-card-image">
+          <img src="images/Ultrasonic_Label_Slitter_1.png" alt="ALLWELL Ultrasonic Label Slitter" class="img-contain">
+          <div class="product-card-tag">Flagship Product</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-title">Ultrasonic Label Slitting Machine</div>
+          <div class="product-card-desc">Designed and manufactured entirely in-house. Cuts woven label strips from supply rolls to required widths using high-grade ultrasonic technology — delivering clean, filament-free edges at high speed. Features a precision web guide system and touchscreen control panel.</div>
+          <div>
+            <div class="product-card-features">
+              <span class="product-feature-pill">Touchscreen HMI</span>
+              <span class="product-feature-pill">Web guide system</span>
+              <span class="product-feature-pill">Auto tension control</span>
+              <span class="product-feature-pill">All fusible fibres</span>
+              <span class="product-feature-pill">Compact footprint</span>
+            </div>
+            <a href="#enquiry" class="product-card-link">Enquire about this machine <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+          <div>
+            <div class="pd-spec-grid">
+              <div class="pd-spec"><div class="pd-spec-key">Min. cut width</div><div class="pd-spec-val">10 mm</div></div>
+              <div class="pd-spec"><div class="pd-spec-key">Machine speed</div><div class="pd-spec-val">Up to 60 m/min</div></div>
+              <div class="pd-spec"><div class="pd-spec-key">Max roll width</div><div class="pd-spec-val">280 mm (std)</div></div>
+              <div class="pd-spec"><div class="pd-spec-key">Ultrasonic power</div><div class="pd-spec-val">30 kHz system</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CNC Laser -->
+      <div class="product-card" id="laser">
+        <div class="product-card-image">
+          <img src="images/Laser_CNC.png" alt="ALLWELL CNC Laser Machine">
+          <div class="product-card-tag">CNC</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-title">CNC Laser Machines</div>
+          <div class="product-card-desc">Single-head and double-head variants built to customer specification. Compatible with all laser types — Fiber, CO₂, Solid State — with variable working area and wattage.</div>
+          <div class="product-card-features">
+            <span class="product-feature-pill">Single &amp; double head</span>
+            <span class="product-feature-pill">Fiber / CO₂ / SS</span>
+            <span class="product-feature-pill">Custom working area</span>
+          </div>
+          <a href="#enquiry" class="product-card-link">Get a quote <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- SS Filter Housings -->
+      <div class="product-card" id="filters">
+        <div class="product-card-image">
+          <img src="images/SS_Filter_Housing_3.png" alt="ALLWELL SS Filter Housing" class="img-contain">
+          <div class="product-card-tag">Filtration</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-title">SS Bag Filter Housings</div>
+          <div class="product-card-desc">Precision-fabricated stainless steel filter housings in SS304 and SS316. Single-bag, multi-bag, and cartridge types for compressors, pharma, food processing, and industrial applications.</div>
+          <div class="product-card-features">
+            <span class="product-feature-pill">SS304 / SS316</span>
+            <span class="product-feature-pill">All types &amp; sizes</span>
+            <span class="product-feature-pill">Custom specs</span>
+          </div>
+          <a href="#enquiry" class="product-card-link">Enquire now <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Hydropneumatic -->
+      <div class="product-card" id="special">
+        <div class="product-card-image">
+          <img src="images/HydroPneumatic_power_press_1.png" alt="ALLWELL Hydropneumatic Power Press" class="img-contain">
+          <div class="product-card-tag">Special Purpose</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-title">Special Purpose Machines</div>
+          <div class="product-card-desc">Custom-designed CNC and ultrasonic solutions for unique industrial requirements. Example: our in-house designed Hydropneumatic Power Press, built to a specific client process requirement.</div>
+          <div class="product-card-features">
+            <span class="product-feature-pill">Fully custom</span>
+            <span class="product-feature-pill">CNC &amp; ultrasonic</span>
+            <span class="product-feature-pill">All industries</span>
+          </div>
+          <a href="#enquiry" class="product-card-link">Discuss your requirement <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Ultrasonic Welding -->
+      <div class="product-card" id="welding">
+        <div class="product-card-image">
+          <img src="images/Ultra_Welding_Machine.png" alt="ALLWELL Ultrasonic Welding Machine" class="img-contain">
+          <div class="product-card-tag">Ultrasonic</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-title">Ultrasonic Welding Machine</div>
+          <div class="product-card-desc">Compact bench-top ultrasonic welding system for fabric, plastic, and industrial assembly applications. Fully designed and branded by ALLWELL Technologies.</div>
+          <div class="product-card-features">
+            <span class="product-feature-pill">Fabric &amp; plastic</span>
+            <span class="product-feature-pill">Compact design</span>
+            <span class="product-feature-pill">Precision control</span>
+          </div>
+          <a href="#enquiry" class="product-card-link">Learn more <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ JOB WORK ══════════════════════════════════════════ -->
+<section class="capabilities" id="job-work">
+  <div class="container">
+    <div class="capabilities-left">
+      <div class="section-label">In-house facility</div>
+      <h2 class="section-title" style="color:white">Laser &amp; Galvo <span style="color:var(--green-mid)">Job Work</span></h2>
+      <p>Our facility runs a dedicated laser and galvo setup capable of handling a wide range of materials and job types. Whether you need a one-off prototype or a production batch, we turn around jobs with precision and speed.</p>
+      <div class="cap-list">
+        <div class="cap-item">
+          <div class="cap-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+          <div>
+            <div class="cap-text-title">Laser cutting &amp; engraving</div>
+            <div class="cap-text-desc">Metal, fabric, wood, leather, acrylic, and more</div>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div>
+            <div class="cap-text-title">Galvo marking &amp; surface etching</div>
+            <div class="cap-text-desc">High-speed precision marking on metals and polymers</div>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg></div>
+          <div>
+            <div class="cap-text-title">Custom job work</div>
+            <div class="cap-text-desc">Send your design — we cut, engrave, or weld to spec</div>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <div class="cap-text-title">Quality guaranteed</div>
+            <div class="cap-text-desc">Every job inspected before delivery</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:32px">
+        <a href="#enquiry" class="btn btn-primary">Request Job Work Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY ALLWELL ═══════════════════════════════════════ -->
+<section class="why">
+  <div class="container">
+    <div class="why-header">
+      <div class="section-label">Why choose us</div>
+      <h2 class="section-title">The ALLWELL <span>Difference</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="why-card-title">Fully in-house design &amp; manufacturing</div>
+        <div class="why-card-desc">From concept and drawing to final assembly — every machine is built under one roof at our Ghaziabad facility.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="why-card-title">Real alternative to imported machines</div>
+        <div class="why-card-desc">We provide durable, reliable solutions that rival European quality — at a fraction of the cost, with fast delivery and genuine local after-sales support.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="why-card-title">Custom-engineered solutions</div>
+        <div class="why-card-desc">We design what doesn't exist off the shelf. Bring us a problem — we'll engineer a solution specific to your process, material, and budget.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="why-card-title">25+ years of textile expertise</div>
+        <div class="why-card-desc">Deep domain knowledge in CNC and ultrasonic technology for the textile and label manufacturing industry — built over decades, not years.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .9h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="why-card-title">Responsive after-sales support</div>
+        <div class="why-card-desc">Spare parts supply, machine upgrades, operator training — we stand behind every machine we sell. Local support, fast response.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="why-card-title">Made in India, trusted across India</div>
+        <div class="why-card-desc">Proudly manufacturing in Ghaziabad and delivering to clients across India. We believe in building world-class machines on Indian soil.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INDUSTRIES ════════════════════════════════════════ -->
+<section class="industries">
+  <div class="container">
+    <div>
+      <div class="section-label">Who we serve</div>
+      <h2 class="section-title">Industries</h2>
+      <p style="font-size:15px;color:var(--grey-50);line-height:1.7;margin-top:8px;max-width:320px">Our machines and solutions serve a broad range of manufacturing sectors across India.</p>
+    </div>
+    <div class="ind-pills">
+      <span class="ind-pill active">Textile &amp; garment</span>
+      <span class="ind-pill active">Label manufacturing</span>
+      <span class="ind-pill active">Compressor &amp; filtration</span>
+      <span class="ind-pill">Pharma &amp; food processing</span>
+      <span class="ind-pill">Fabrication &amp; metalwork</span>
+      <span class="ind-pill">Signage &amp; décor</span>
+      <span class="ind-pill">Automotive components</span>
+      <span class="ind-pill">Packaging</span>
+      <span class="ind-pill">Industrial assembly</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ENQUIRY ═══════════════════════════════════════════ -->
+<section class="enquiry" id="enquiry">
+  <div class="container">
+    <div class="enquiry-left">
+      <div class="section-label">Let's talk</div>
+      <h2 class="section-title">Send Us an <span>Enquiry</span></h2>
+      <p>Tell us what you need — a machine, job work, a custom solution, or just a question. We'll get back to you within one business day.</p>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .9h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div>
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-value"><a href="tel:+919310854523">+91 98712 96020</a> &nbsp;|&nbsp; <a href="tel:+919315600340">+91 93156 00340</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:info@allwell.co.in">info@allwell.co.in</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-value">Plot No. 17, Anand Industrial Estate,<br>Mohan Nagar, Ghaziabad — 201007, U.P.</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <div class="contact-label">Working hours</div>
+            <div class="contact-value">Mon – Sat, 9:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://wa.me/919310854523?text=Hi%20ALLWELL%20Technologies%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <div class="enquiry-form">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        id="enquiryForm"
+        onsubmit="handleSubmit(event)"
+      >
+      <input type="hidden" name="access_key" value="64997582-b452-4fd7-8383-7993c5666dd0">
+      <input type="hidden" name="subject" value="New Enquiry — ALLWELL Technologies Website">
+      <input type="hidden" name="from_name" value="ALLWELL Technologies Website">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="replyto" value="">
+      <input type="checkbox" name="botcheck" style="display:none">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="fname">Full Name *</label>
+          <input class="form-input" type="text" id="fname" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fcompany">Company *</label>
+          <input class="form-input" type="text" id="fcompany" name="company" placeholder="Company name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="fphone">Phone / WhatsApp *</label>
+          <input class="form-input" type="tel" id="fphone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fcity">City</label>
+          <input class="form-input" type="text" id="fcity" name="city" placeholder="Your city">
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="fproduct">Product / Service of Interest *</label>
+        <select class="form-select" id="fproduct" name="product" required>
+          <option value="">— Select a product or service —</option>
+          <option value="ultrasonic-slitter">Ultrasonic Label Slitting Machine</option>
+          <option value="cnc-laser">CNC Laser Machine (Single / Double Head)</option>
+          <option value="filter-housing">SS Bag Filter Housing</option>
+          <option value="special-purpose">Special Purpose Machine (Custom)</option>
+          <option value="hydropneumatic">Hydropneumatic Power Press</option>
+          <option value="ultrasonic-welding">Ultrasonic Welding Machine</option>
+          <option value="job-work">Laser / Galvo Job Work</option>
+          <option value="air-filters">Industrial Air Filters</option>
+          <option value="other">Other / Not sure</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="fmessage">Your Requirement</label>
+        <textarea class="form-textarea" id="fmessage" name="message" placeholder="Briefly describe what you need — specifications, quantity, timeline, or any questions."></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="submitBtn">Submit Enquiry →</button>
+      <button type="button" class="form-submit" id="resetBtn" onclick="resetForm()" style="display:none;background:var(--grey-70);margin-top:10px;">+ Submit Another Enquiry</button>
+      <p class="form-note">Your details are only used to respond to this enquiry. We do not share your information with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/Logo_transparent_background.png" alt="ALLWELL Technologies">
+        <p class="footer-tagline">Designing and manufacturing precision special-purpose machines since 2008.</p>
+        <div class="footer-social">
+<!-- LinkedIn and YouTube hidden until profiles are created -->
+          <a href="https://wa.me/919310854523" class="social-btn" target="_blank" rel="noopener" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="#ultrasonic">Ultrasonic Label Slitter</a>
+        <a href="#laser">CNC Laser Machines</a>
+        <a href="#filters">SS Filter Housings</a>
+        <a href="#special">Special Purpose Machines</a>
+        <a href="#welding">Ultrasonic Welding</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#job-work">Laser Job Work</a>
+        <a href="#job-work">Galvo Marking</a>
+        <a href="#enquiry">Spare Parts Supply</a>
+        <a href="#enquiry">Machine Upgrades</a>
+        <a href="#enquiry">Operator Training</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+919310854523">+91 98712 96020</a>
+        <a href="tel:+919315600340">+91 93156 00340</a>
+        <a href="mailto:info@allwell.co.in">info@allwell.co.in</a>
+        <a href="https://www.allwell.co.in">www.allwell.co.in</a>
+        <a href="https://www.indiamart.com" target="_blank">Find us on IndiaMART</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ALLWELL Technologies. All rights reserved. | Plot No. 17, Anand Industrial Estate, Mohan Nagar, Ghaziabad — 201007 (U.P.)</span>
+
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/919310854523?text=Hi%20ALLWELL%20Technologies%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// Web3Forms enquiry submission
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('enquiryForm');
+  const btn = form.querySelector('button[type="submit"]');
+
+  btn.textContent = 'Sending...';
+  btn.style.color = '#ffffff';
+  btn.disabled = true;
+  btn.style.background = 'var(--grey-50)';
+
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      btn.textContent = '✓ Enquiry Sent! We will contact you shortly.';
+      btn.style.color = '#ffffff';
+      btn.style.background = 'var(--green-dark)';
+      form.reset();
+      document.getElementById('resetBtn').style.display = 'block';
+    } else {
+      btn.textContent = 'Something went wrong. Please try again.';
+      btn.style.color = '#ffffff';
+      btn.style.background = '#c0392b';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    btn.textContent = 'Network error. Please call us directly.';
+    btn.style.color = '#ffffff';
+    btn.style.background = '#c0392b';
+    btn.disabled = false;
+  }
+}
+
+// Reset enquiry form for another submission
+function resetForm() {
+  const form = document.getElementById('enquiryForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  form.reset();
+  submitBtn.textContent = 'Submit Enquiry →';
+  submitBtn.style.color = '#ffffff';
+  submitBtn.style.background = 'var(--green)';
+  submitBtn.disabled = false;
+  resetBtn.style.display = 'none';
+}
+
+// Smooth active nav on scroll
+const sections = ['products', 'job-work', 'about', 'enquiry'];
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 100) current = id;
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
