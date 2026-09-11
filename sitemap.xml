@@ -3,7 +3,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://www.allwelltechnologies.com/</loc>
+    <loc>https://www.allwell.co.in/</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- Products & Solutions -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#products</loc>
+    <loc>https://www.allwell.co.in/#products</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- Ultrasonic Label Slitter -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#ultrasonic</loc>
+    <loc>https://www.allwell.co.in/#ultrasonic</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
 
   <!-- CNC Laser Machines -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#laser</loc>
+    <loc>https://www.allwell.co.in/#laser</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -35,7 +35,7 @@
 
   <!-- SS Filter Housings -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#filters</loc>
+    <loc>https://www.allwell.co.in/#filters</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -43,7 +43,7 @@
 
   <!-- Special Purpose Machines -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#special</loc>
+    <loc>https://www.allwell.co.in/#special</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -51,7 +51,7 @@
 
   <!-- Ultrasonic Welding Machine -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#welding</loc>
+    <loc>https://www.allwell.co.in/#welding</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -59,7 +59,7 @@
 
   <!-- Laser & Galvo Job Work -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#job-work</loc>
+    <loc>https://www.allwell.co.in/#job-work</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -67,7 +67,7 @@
 
   <!-- About -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#about</loc>
+    <loc>https://www.allwell.co.in/#about</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -75,7 +75,7 @@
 
   <!-- Industries -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#industries</loc>
+    <loc>https://www.allwell.co.in/#industries</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -83,7 +83,7 @@
 
   <!-- Contact / Enquiry -->
   <url>
-    <loc>https://www.allwelltechnologies.com/#enquiry</loc>
+    <loc>https://www.allwell.co.in/#enquiry</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
