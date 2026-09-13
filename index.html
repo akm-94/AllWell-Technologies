@@ -26,7 +26,7 @@
   --white:        #FFFFFF;
   --font-display: 'Barlow Condensed', sans-serif;
   --font-body:    'Barlow', sans-serif;
-  --nav-h:        90px;
+  --nav-h:        130px;
   --radius:       4px;
   --radius-lg:    8px;
   --shadow:       0 2px 16px rgba(0,0,0,0.10);
@@ -101,7 +101,7 @@ ul { list-style: none; }
   justify-content: space-between;
   gap: 24px;
 }
-.nav-logo img { height: 130px; width: auto; }
+.nav-logo img { height: 220px; width: auto; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -273,6 +273,55 @@ ul { list-style: none; }
   display: inline-flex;
   animation: marquee 28s linear infinite;
 }
+/* ── IMAGE TICKER ── */
+.img-ticker {
+  background: var(--white);
+  border-top: 1px solid var(--grey-10);
+  border-bottom: 1px solid var(--grey-10);
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.img-ticker-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  animation: img-ticker-scroll 22s linear infinite;
+}
+.img-ticker:hover .img-ticker-inner {
+  animation-play-state: paused;
+}
+.img-ticker-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  gap: 8px;
+  border-right: 1px solid var(--grey-10);
+}
+.img-ticker-item:last-child { border-right: none; }
+.img-ticker-item img {
+  height: 100px;
+  width: 140px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+.img-ticker-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--grey-50);
+  letter-spacing: .04em;
+  text-align: center;
+  white-space: nowrap;
+}
+@keyframes img-ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 .marquee-item {
   font-family: var(--font-display);
   font-size: 13px;
@@ -780,7 +829,7 @@ footer {
       <li><a href="#enquiry">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wa.me/919310854523" class="nav-whatsapp" target="_blank" rel="noopener">
+      <a href="https://wa.me/919871296020" class="nav-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         +91 98712 96020
       </a>
@@ -821,7 +870,7 @@ footer {
     </div>
   </div>
   <div class="hero-image-panel">
-    <img src="images/Ultrasonic_Label_Slitter_1.png" alt="ALLWELL Ultrasonic Label Slitter machine" id="heroImg" class="img-contain" style="opacity:1;background:#0F2414;">
+    <img src="images/Ultrasonic_Label_Slitter_1.png" alt="ALLWELL Ultrasonic Label Slitter machine" class="img-contain" style="opacity:1;background:#0F2414;">
     <div class="hero-product-badge">
       <p>Featured product</p>
       <strong>Ultrasonic Label Slitter</strong>
@@ -849,6 +898,54 @@ footer {
     <span class="marquee-item">Hydropneumatic Power Press</span><span class="marquee-dot">·</span>
     <span class="marquee-item">Ultrasonic Welding</span><span class="marquee-dot">·</span>
     <span class="marquee-item">Make in India</span><span class="marquee-dot">·</span>
+  </div>
+</div>
+
+<!-- ═══ IMAGE TICKER ══════════════════════════════════════ -->
+<div class="img-ticker">
+  <div class="img-ticker-inner">
+    <!-- Set 1 -->
+    <div class="img-ticker-item">
+      <img src="images/Ultrasonic_Label_Slitter_1.png" alt="Ultrasonic Label Slitter">
+      <span class="img-ticker-label">Ultrasonic Label Slitter</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/Laser_CNC.png" alt="CNC Laser Machine">
+      <span class="img-ticker-label">CNC Laser Machine</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/SS_Filter_Housing_3.png" alt="SS Filter Housing">
+      <span class="img-ticker-label">SS Bag Filter Housing</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/HydroPneumatic_power_press_1.png" alt="Hydropneumatic Power Press">
+      <span class="img-ticker-label">Hydropneumatic Power Press</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/Ultra_Welding_Machine.png" alt="Ultrasonic Welding Machine">
+      <span class="img-ticker-label">Ultrasonic Welding Machine</span>
+    </div>
+    <!-- Set 2 — duplicate for seamless loop -->
+    <div class="img-ticker-item">
+      <img src="images/Ultrasonic_Label_Slitter_1.png" alt="Ultrasonic Label Slitter">
+      <span class="img-ticker-label">Ultrasonic Label Slitter</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/Laser_CNC.png" alt="CNC Laser Machine">
+      <span class="img-ticker-label">CNC Laser Machine</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/SS_Filter_Housing_3.png" alt="SS Filter Housing">
+      <span class="img-ticker-label">SS Bag Filter Housing</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/HydroPneumatic_power_press_1.png" alt="Hydropneumatic Power Press">
+      <span class="img-ticker-label">Hydropneumatic Power Press</span>
+    </div>
+    <div class="img-ticker-item">
+      <img src="images/Ultra_Welding_Machine.png" alt="Ultrasonic Welding Machine">
+      <span class="img-ticker-label">Ultrasonic Welding Machine</span>
+    </div>
   </div>
 </div>
 
@@ -1118,7 +1215,7 @@ footer {
           <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .9h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
           <div>
             <div class="contact-label">Phone / WhatsApp</div>
-            <div class="contact-value"><a href="tel:+919310854523">+91 98712 96020</a> &nbsp;|&nbsp; <a href="tel:+919315600340">+91 93156 00340</a></div>
+            <div class="contact-value"><a href="tel:+919871296020">+91 98712 96020</a> &nbsp;|&nbsp; <a href="tel:+919315600340">+91 93156 00340</a></div>
           </div>
         </div>
         <div class="contact-item">
@@ -1144,7 +1241,7 @@ footer {
         </div>
       </div>
 
-      <a href="https://wa.me/919310854523?text=Hi%20ALLWELL%20Technologies%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="btn btn-primary">
+      <a href="https://wa.me/919871296020?text=Hi%20ALLWELL%20Technologies%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Chat on WhatsApp
       </a>
@@ -1219,7 +1316,7 @@ footer {
         <p class="footer-tagline">Designing and manufacturing precision special-purpose machines since 2008.</p>
         <div class="footer-social">
 <!-- LinkedIn and YouTube hidden until profiles are created -->
-          <a href="https://wa.me/919310854523" class="social-btn" target="_blank" rel="noopener" title="WhatsApp">
+          <a href="https://wa.me/919871296020" class="social-btn" target="_blank" rel="noopener" title="WhatsApp">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
         </div>
@@ -1242,7 +1339,7 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="tel:+919310854523">+91 98712 96020</a>
+        <a href="tel:+919871296020">+91 98712 96020</a>
         <a href="tel:+919315600340">+91 93156 00340</a>
         <a href="mailto:info@allwell.co.in">info@allwell.co.in</a>
         <a href="https://www.allwell.co.in">www.allwell.co.in</a>
@@ -1257,7 +1354,7 @@ footer {
 </footer>
 
 <!-- WhatsApp Float Button -->
-<a href="https://wa.me/919310854523?text=Hi%20ALLWELL%20Technologies%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp">
+<a href="https://wa.me/919871296020?text=Hi%20ALLWELL%20Technologies%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
