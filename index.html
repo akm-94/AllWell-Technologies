@@ -232,35 +232,41 @@ ul { list-style: none; }
   position: relative;
   overflow: hidden;
 }
-.hero-image-panel img {
+/* Slides */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  z-index: 0;
+}
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+  position: relative;
+}
+.hero-slide img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  opacity: 1;
-  transition: opacity .6s;
   padding: 32px;
   background: var(--green-deep);
-}
-.hero-image-panel::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, var(--green-deep) 0%, transparent 40%);
+  display: block;
 }
 .hero-product-badge {
   position: absolute;
   bottom: 32px;
   right: 32px;
-  z-index: 2;
-  background: rgba(255,255,255,.1);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,.15);
+  z-index: 20;
+  background: var(--green-dark);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: var(--radius-lg);
   padding: 14px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
 }
-.hero-product-badge p { font-size: 11px; color: rgba(255,255,255,.5); margin-bottom: 2px; letter-spacing: .06em; text-transform: uppercase; }
-.hero-product-badge strong { font-size: 14px; color: var(--white); font-weight: 600; }
+.hero-product-badge p { font-size: 11px; color: rgba(255,255,255,.6); margin-bottom: 2px; letter-spacing: .06em; text-transform: uppercase; }
+.hero-product-badge strong { font-size: 14px; color: #7EC882; font-weight: 700; }
 
 /* ─── MARQUEE STRIP ──────────────────────────────────────── */
 .marquee-strip {
@@ -285,12 +291,9 @@ ul { list-style: none; }
 .img-ticker-inner {
   display: inline-flex;
   align-items: center;
-  gap: 0;
-  animation: img-ticker-scroll 22s linear infinite;
+  animation: img-ticker-scroll 28s linear infinite;
 }
-.img-ticker:hover .img-ticker-inner {
-  animation-play-state: paused;
-}
+.img-ticker:hover .img-ticker-inner { animation-play-state: paused; }
 .img-ticker-item {
   display: inline-flex;
   flex-direction: column;
@@ -563,6 +566,50 @@ ul { list-style: none; }
 .cap-badge-text { font-size: 11px; opacity: .8; margin-top: 4px; line-height: 1.3; }
 
 /* ─── WHY ALLWELL ────────────────────────────────────────── */
+/* ── VIDEO SECTION ── */
+.video-section {
+  padding: 80px 0;
+  background: var(--green-deep);
+  position: relative;
+  overflow: hidden;
+}
+.video-section .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.video-left .section-label { color: var(--green-mid); }
+.video-left .section-title { color: var(--white); }
+.video-left p { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 24px; }
+.video-pill {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.7);
+  padding: 5px 12px; border-radius: 20px;
+  margin: 3px 3px 3px 0; letter-spacing: .04em;
+}
+.video-embed-wrap {
+  position: relative; width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,.5);
+  border: 1px solid rgba(255,255,255,.1);
+}
+.video-embed-wrap iframe {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; border: none;
+}
+.video-shorts-link { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.5); }
+.video-shorts-link a { color: var(--green-mid); font-weight: 600; text-decoration: none; }
+.video-shorts-link a:hover { color: var(--white); }
+@media (max-width: 900px) {
+  .video-section .container { grid-template-columns: 1fr; gap: 40px; }
+}
+
 .why { padding: 96px 0; background: var(--white); }
 .why-header { text-align: center; max-width: 600px; margin: 0 auto 56px; }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--grey-10); border-radius: var(--radius-lg); overflow: hidden; }
@@ -864,16 +911,21 @@ footer {
         <div class="hero-stat-label">In-house design<br>and manufacturing</div>
       </div>
       <div>
-        <div class="hero-stat-num">6+</div>
+        <div class="hero-stat-num">6</div>
         <div class="hero-stat-label">Product &amp; service<br>categories</div>
       </div>
     </div>
   </div>
-  <div class="hero-image-panel">
-    <img src="images/Ultrasonic_Label_Slitter_1.png" alt="ALLWELL Ultrasonic Label Slitter machine" class="img-contain" style="opacity:1;background:#0F2414;">
+  <div class="hero-image-panel" id="heroPanel">
+    <div class="hero-slide active">
+      <img src="images/Ultrasonic_Label_Slitter_1.png" alt="ALLWELL Ultrasonic Label Slitter">
+    </div>
+    <div class="hero-slide">
+      <img src="images/Laser_Engraving_Machine.png" alt="ALLWELL Laser Engraving Machine">
+    </div>
     <div class="hero-product-badge">
-      <p>Featured product</p>
-      <strong>Ultrasonic Label Slitter</strong>
+      <p>Flagship product</p>
+      <strong id="heroBadgeText">Ultrasonic Label Slitter</strong>
     </div>
   </div>
 </section>
@@ -901,51 +953,22 @@ footer {
   </div>
 </div>
 
-<!-- ═══ IMAGE TICKER ══════════════════════════════════════ -->
+<!-- ═══ IMAGE TICKER ═════════════════════════════════════ -->
 <div class="img-ticker">
   <div class="img-ticker-inner">
-    <!-- Set 1 -->
-    <div class="img-ticker-item">
-      <img src="images/Ultrasonic_Label_Slitter_1.png" alt="Ultrasonic Label Slitter">
-      <span class="img-ticker-label">Ultrasonic Label Slitter</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/Laser_CNC.png" alt="CNC Laser Machine">
-      <span class="img-ticker-label">CNC Laser Machine</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/SS_Filter_Housing_3.png" alt="SS Filter Housing">
-      <span class="img-ticker-label">SS Bag Filter Housing</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/HydroPneumatic_power_press_1.png" alt="Hydropneumatic Power Press">
-      <span class="img-ticker-label">Hydropneumatic Power Press</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/Ultra_Welding_Machine.png" alt="Ultrasonic Welding Machine">
-      <span class="img-ticker-label">Ultrasonic Welding Machine</span>
-    </div>
-    <!-- Set 2 — duplicate for seamless loop -->
-    <div class="img-ticker-item">
-      <img src="images/Ultrasonic_Label_Slitter_1.png" alt="Ultrasonic Label Slitter">
-      <span class="img-ticker-label">Ultrasonic Label Slitter</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/Laser_CNC.png" alt="CNC Laser Machine">
-      <span class="img-ticker-label">CNC Laser Machine</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/SS_Filter_Housing_3.png" alt="SS Filter Housing">
-      <span class="img-ticker-label">SS Bag Filter Housing</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/HydroPneumatic_power_press_1.png" alt="Hydropneumatic Power Press">
-      <span class="img-ticker-label">Hydropneumatic Power Press</span>
-    </div>
-    <div class="img-ticker-item">
-      <img src="images/Ultra_Welding_Machine.png" alt="Ultrasonic Welding Machine">
-      <span class="img-ticker-label">Ultrasonic Welding Machine</span>
-    </div>
+    <div class="img-ticker-item"><img src="images/Laser_Engraving_Machine.png" alt="Laser Engraving Machine"><span class="img-ticker-label">Laser Engraving Machine</span></div>
+    <div class="img-ticker-item"><img src="images/Ultrasonic_Label_Slitter_1.png" alt="Ultrasonic Label Slitter"><span class="img-ticker-label">Ultrasonic Label Slitter</span></div>
+    <div class="img-ticker-item"><img src="images/Laser_CNC.png" alt="CNC Laser Machine"><span class="img-ticker-label">CNC Laser Machine</span></div>
+    <div class="img-ticker-item"><img src="images/SS_Filter_Housing_3.png" alt="SS Filter Housing"><span class="img-ticker-label">SS Bag Filter Housing</span></div>
+    <div class="img-ticker-item"><img src="images/HydroPneumatic_power_press_1.png" alt="Hydropneumatic Power Press"><span class="img-ticker-label">Hydropneumatic Power Press</span></div>
+    <div class="img-ticker-item"><img src="images/Ultra_Welding_Machine.png" alt="Ultrasonic Welding Machine"><span class="img-ticker-label">Ultrasonic Welding Machine</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="img-ticker-item"><img src="images/Laser_Engraving_Machine.png" alt="Laser Engraving Machine"><span class="img-ticker-label">Laser Engraving Machine</span></div>
+    <div class="img-ticker-item"><img src="images/Ultrasonic_Label_Slitter_1.png" alt="Ultrasonic Label Slitter"><span class="img-ticker-label">Ultrasonic Label Slitter</span></div>
+    <div class="img-ticker-item"><img src="images/Laser_CNC.png" alt="CNC Laser Machine"><span class="img-ticker-label">CNC Laser Machine</span></div>
+    <div class="img-ticker-item"><img src="images/SS_Filter_Housing_3.png" alt="SS Filter Housing"><span class="img-ticker-label">SS Bag Filter Housing</span></div>
+    <div class="img-ticker-item"><img src="images/HydroPneumatic_power_press_1.png" alt="Hydropneumatic Power Press"><span class="img-ticker-label">Hydropneumatic Power Press</span></div>
+    <div class="img-ticker-item"><img src="images/Ultra_Welding_Machine.png" alt="Ultrasonic Welding Machine"><span class="img-ticker-label">Ultrasonic Welding Machine</span></div>
   </div>
 </div>
 
@@ -987,6 +1010,51 @@ footer {
     </div>
 
     <div class="product-grid">
+
+      <!-- FEATURED: Laser Engraving Machine -->
+      <div class="product-card featured" id="laser-engraving">
+        <div class="product-card-image" style="position:relative;cursor:pointer;" onclick="document.getElementById('videoSection').scrollIntoView({behavior:'smooth'})">
+          <!-- YouTube thumbnail as clickable image linking to video section -->
+          <img src="https://img.youtube.com/vi/XK1uQkSMZlw/maxresdefault.jpg"
+               alt="ALLWELL Laser Engraving Machine — Watch Demo"
+               style="width:100%;height:100%;object-fit:cover;"
+               onerror="this.src='https://img.youtube.com/vi/XK1uQkSMZlw/hqdefault.jpg'">
+          <!-- Play button overlay -->
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);transition:background .2s;"
+               onmouseenter="this.style.background='rgba(0,0,0,0.4)'"
+               onmouseleave="this.style.background='rgba(0,0,0,0.25)'">
+            <div style="width:60px;height:60px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.4);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="product-card-tag" style="z-index:5;position:relative;">New · Flagship · Watch Demo</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-title">Laser Engraving Machine</div>
+          <div class="product-card-desc">Our latest flagship machine — a precision laser engraving system designed and developed in-house. Capable of high-resolution engraving and marking on metal, wood, acrylic, leather, fabric, and more. Features a large working area, intuitive software interface, and integrated chiller unit for continuous operation.</div>
+          <div>
+            <div class="product-card-features">
+              <span class="product-feature-pill">High-res engraving</span>
+              <span class="product-feature-pill">Multi-material</span>
+              <span class="product-feature-pill">Large work area</span>
+              <span class="product-feature-pill">Integrated chiller</span>
+              <span class="product-feature-pill">In-house design</span>
+            </div>
+            <a href="#videoSection" class="product-card-link" onclick="event.preventDefault();document.getElementById('videoSection').scrollIntoView({behavior:'smooth'})">
+              Watch machine in operation
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div>
+            <div class="pd-spec-grid">
+              <div class="pd-spec"><div class="pd-spec-key">Application</div><div class="pd-spec-val">Engraving & marking</div></div>
+              <div class="pd-spec"><div class="pd-spec-key">Materials</div><div class="pd-spec-val">Metal, wood, acrylic, more</div></div>
+              <div class="pd-spec"><div class="pd-spec-key">Interface</div><div class="pd-spec-val">PC software + monitor</div></div>
+              <div class="pd-spec"><div class="pd-spec-key">Cooling</div><div class="pd-spec-val">Integrated chiller unit</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- FEATURED: Ultrasonic Label Slitter -->
       <div class="product-card featured" id="ultrasonic">
@@ -1133,6 +1201,41 @@ footer {
       </div>
       <div style="margin-top:32px">
         <a href="#enquiry" class="btn btn-primary">Request Job Work Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEO SECTION ══════════════════════════════════ -->
+<section class="video-section" id="videoSection">
+  <div class="container">
+    <div class="video-left">
+      <div class="section-label">See it in action</div>
+      <h2 class="section-title">Laser Engraving Machine — <span style="color:var(--green-mid)">Live Demo</span></h2>
+      <p>Watch our latest flagship machine in full operation. High-resolution engraving and marking across multiple materials, designed and built in-house at our Ghaziabad facility.</p>
+      <div style="margin-bottom:28px">
+        <span class="video-pill">Metal engraving</span>
+        <span class="video-pill">Wood marking</span>
+        <span class="video-pill">Acrylic cutting</span>
+        <span class="video-pill">High precision</span>
+        <span class="video-pill">In-house design</span>
+      </div>
+      <a href="https://www.youtube.com/channel/UCwLxLPsybVtlMMnWF73eCNA" target="_blank" rel="noopener" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        Visit our YouTube Channel
+      </a>
+    </div>
+    <div>
+      <div class="video-embed-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/XK1uQkSMZlw?rel=0&modestbranding=1"
+          title="ALLWELL Technologies — Laser Engraving Machine Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-shorts-link">
+        ▶ Also watch the <a href="https://youtube.com/shorts/JaU7fBhjL6k?feature=share" target="_blank" rel="noopener">60-second YouTube Short</a>
       </div>
     </div>
   </div>
@@ -1315,7 +1418,9 @@ footer {
         <img src="images/Logo_transparent_background.png" alt="ALLWELL Technologies">
         <p class="footer-tagline">Designing and manufacturing precision special-purpose machines since 2008.</p>
         <div class="footer-social">
-<!-- LinkedIn and YouTube hidden until profiles are created -->
+<a href="https://www.youtube.com/channel/UCwLxLPsybVtlMMnWF73eCNA" class="social-btn" target="_blank" rel="noopener" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          </a>
           <a href="https://wa.me/919871296020" class="social-btn" target="_blank" rel="noopener" title="WhatsApp">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
@@ -1359,6 +1464,22 @@ footer {
 </a>
 
 <script>
+// Hero flagship alternating slideshow
+(function() {
+  const panel  = document.getElementById('heroPanel');
+  if (!panel) return;
+  const slides = Array.from(panel.querySelectorAll('.hero-slide'));
+  const badge  = document.getElementById('heroBadgeText');
+  const labels = ['Ultrasonic Label Slitter', 'Laser Engraving Machine'];
+  let cur = 0;
+  setInterval(function() {
+    slides[cur].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    slides[cur].classList.add('active');
+    if (badge) badge.textContent = labels[cur];
+  }, 4000);
+})();
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
